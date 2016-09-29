@@ -3,23 +3,20 @@ using System.Collections;
 
 public class BulletBehaviour : MonoBehaviour {
 
-    public Transform Turret;
-    public float speed = 10;
-    Transform Bulletpos;
-    Rigidbody2D Bulletbody;
-    
 
-void Start()
-{
-        GameObject Bullet = this.gameObject;
-        Bulletpos = Bullet.GetComponent<Transform>();
-        Bulletbody = this.GetComponent<Rigidbody2D>();
-}
+
+
+void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
 // Update is called once per frame
 void Update()
 {
-        Bulletbody.velocity = transform.forward * speed;
-        
+      
 }
 }
