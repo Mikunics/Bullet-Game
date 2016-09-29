@@ -4,7 +4,7 @@ using System.Collections;
 public class TurretBehaviour : MonoBehaviour {
 
     public GameObject projectile;
-    public float speed = 10;    
+    public float speed = 10f;    
 void BulletFire()
 {
         Rigidbody2D bullet;
