@@ -4,15 +4,18 @@ using System.Collections;
 public class CharacterBehaviour : MonoBehaviour {
 
        public Rigidbody2D Character;
-       public float speed;
+       public float normSpeed;
+       public float rollSpeed;
+       private bool roll = false;
+       private Vector2 forces;
 
-void GameOver()
-    {
+    void GameOver() {
         Debug.Log("Game Over phase started");
         // UI for gameover goes here
+        // I agree Glenn 
     }
 
-void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("Entered Collision");
         if(other.gameObject.CompareTag("Projectile"))
         {
@@ -21,11 +24,27 @@ void OnTriggerEnter2D(Collider2D other) {
         }
     }
 
-void Update()
-{
-        Vector2 forces;
-        forces.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        forces.y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        Character.AddForce(forces);
-}
+    void Update() {
+        if (Input.GetKeyDown("space")) {
+            roll = true;
+            forces.x = Input.GetAxis("Horizontal") * rollSpeed * Time.deltaTime;
+            forces.y = Input.GetAxis("Vertical") * rollSpeed * Time.deltaTime;
+        } else {
+            roll = false;
+            forces.x = Input.GetAxis("Horizontal") * normSpeed * Time.deltaTime;
+            forces.y = Input.GetAxis("Vertical") * normSpeed * Time.deltaTime;
+        }
+    }
+
+    void FixedUpdate() {
+        // sorry if i did it the ugly way :)
+        // check if person should roll
+        if (roll == false) {
+            // normal movement or dont move
+            Character.AddForce(forces);
+        } else if (roll == true) {
+            // roll speed
+            Character.AddForce(forces);
+         }
+    }
 }
