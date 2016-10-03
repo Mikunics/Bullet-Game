@@ -13,6 +13,15 @@ public class CharacterBehaviour : MonoBehaviour {
         // UI for gameover goes here
         // I agree Glenn 
     }
+    
+    void CheckInput(){
+    // here goes the code that check what skill is equipped
+    if(Input.GetKeyDown("space")){
+            forces.x = Input.GetAxis("Horizontal") * rollSpeed * Time.deltaTime;
+            forces.y = Input.GetAxis("Vertical") * rollSpeed * Time.deltaTime;
+    }       
+           
+    }
 
     void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("Entered Collision");
@@ -24,26 +33,13 @@ public class CharacterBehaviour : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown("space")) {
-            roll = true;
-            forces.x = Input.GetAxis("Horizontal") * rollSpeed * Time.deltaTime;
-            forces.y = Input.GetAxis("Vertical") * rollSpeed * Time.deltaTime;
-        } else {
-            roll = false;
             forces.x = Input.GetAxis("Horizontal") * normSpeed * Time.deltaTime;
             forces.y = Input.GetAxis("Vertical") * normSpeed * Time.deltaTime;
-        }
+            CheckInput();
     }
 
     void FixedUpdate() {
-        // sorry if i did it the ugly way :)
-        // check if person should roll
-        if (roll == false) {
-            // normal movement or dont move
-            Character.AddForce(forces);
-        } else if (roll == true) {
-            // roll speed
-            Character.AddForce(forces);
+       Character.AddForce(forces);
          }
     }
 }
