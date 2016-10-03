@@ -217,8 +217,8 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 744327602}
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.0256
   m_LinearDrag: 1000
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -285,7 +285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 744327604}
-  speed: 100000
+  normSpeed: 1000
+  rollSpeed: 5000
 --- !u!1 &1030999629
 GameObject:
   m_ObjectHideFlags: 0
