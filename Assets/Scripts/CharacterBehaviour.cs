@@ -8,7 +8,6 @@ public class CharacterBehaviour : MonoBehaviour {
        public float rollSpeed;
        private bool roll = false;
        private Vector2 forces;
-
     void GameOver() {
         Debug.Log("Game Over phase started");
         // UI for gameover goes here
