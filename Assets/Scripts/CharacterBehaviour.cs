@@ -34,7 +34,9 @@ public class CharacterBehaviour : MonoBehaviour {
 
     void Update() {
             forces.x = Input.GetAxis("Horizontal") * normSpeed * Time.deltaTime;
+            Debug.Log(Input.GetAxis("Horizontal")+"x");
             forces.y = Input.GetAxis("Vertical") * normSpeed * Time.deltaTime;
+            Debug.Log(Input.GetAxis("Vertical")+"y");
             CheckInput();
     }
 
