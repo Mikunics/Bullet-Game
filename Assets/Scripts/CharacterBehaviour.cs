@@ -40,6 +40,6 @@ public class CharacterBehaviour : MonoBehaviour {
 
     void FixedUpdate() {
        Character.AddForce(forces);
-         }
     }
 }
+
