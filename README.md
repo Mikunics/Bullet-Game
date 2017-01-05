@@ -12,3 +12,5 @@ Planned Features:
 Different skills
 Store Screen
 Lots of crazy projectiles patterns
+
+Currently is experiencing stagnation in development and mabye abandoned
