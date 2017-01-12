@@ -10,8 +10,7 @@ public class CharacterBehaviour : MonoBehaviour {
        private Vector2 forces;
     void GameOver() {
         Debug.Log("Game Over phase started");
-        // UI for gameover goes here
-        // I agree Glenn 
+        SceneManager.LoadScene ("Game Scene", LoadSceneMode.Single);
     }
     
     void CheckInput(){
